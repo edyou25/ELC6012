@@ -1,0 +1,17 @@
+project:
+  type: default
+  output-dir: _output
+
+format:
+  typst:
+    papersize: a4
+    margin:
+      x: 1in
+      y: 1in
+    fontsize: 11pt
+    number-sections: false
+    toc: false
+
+execute:
+  freeze: auto
+
