@@ -12,6 +12,9 @@ format:
     number-sections: false
     toc: false
 
+filters:
+  - highlight.lua
+
 execute:
   freeze: auto
 

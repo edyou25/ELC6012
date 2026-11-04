@@ -1,22 +1,167 @@
 ---
-title: "Interactive Robot Navigation through the Integration of Human Inputs and Environmental Information"
 bibliography: references.bib
 link-citations: true
+output-file: Assessment2.pdf
 ---
 
-Autonomous navigation is a fundamental capability for mobile robots. In conventional navigation systems, robots perceive their surroundings through sensors, construct a structural representation of the environment, and select actions of path that satisfy geometric and kinematic constraints. Humans appearing in the environment are often represented in the same format as the environment, for example as elements in object sets or as inaccessible grids in occupation maps. This representation has supported substantial progress in human-aware and socially aware navigation, where robots are expected not only to avoid collisions but also to respect human comfort, social conventions, and motion patterns [@kruse2013; @moller2021]. As robots move into everyday human environments, navigation increasingly involves direct interaction with people rather than merely motion around them. Effective interactive navigation therefore requires a unified framework that integrates human inputs and environmental information while preserving the essential information and constraints of both. This integration is particularly challenging for online physical interaction, natural-language instructions, and data-driven navigation frameworks.
+# Response to Feedback {.unnumbered}
 
-Human input during navigation can occur at different levels and through different modalities. At a relatively low level, a person may physically push, pull, or guide a robot, and interaction forces can be converted into motion commands while obstacle avoidance maintains safety [@fremy2014]. At a higher level, a person may communicate a navigation goal or route using natural language. Vision-and-Language Navigation (VLN), for example, requires an embodied agent to interpret natural-language instructions in relation to visual observations and execute corresponding navigation actions [@anderson2018]. Recent work has expanded VLN towards spatial reasoning and foundation models, further connecting linguistic instructions with environmental representations and embodied decision-making [@zhang2024]. These developments show that interactive robot navigation is moving beyond purely geometric sensing towards heterogeneous human inputs containing intention, preference, semantic meaning, and task-level constraints.
+*Word count: 185 words (excluding salutation and sign-off)*
 
-Despite this progress, human input and environmental information are still commonly handled through task-specific representations and mechanisms. Conventional navigation can conveniently represent both static obstacles and moving people geometrically because their influence on navigation can be expressed through occupancy, distance, velocity, or collision constraints. However, this common representation becomes increasingly difficult to maintain when interaction involves higher-level or multimodal information. A force applied by a human represents not only a physical quantity but potentially an immediate motion intention. A physical connection, such as guiding or pulling through a handle or cable, introduces continuous interaction constraints between the human and robot. A language instruction can encode goals, landmarks, spatial relations, route preferences, and sequential actions that cannot be adequately represented as occupied cells or object trajectories. Thus, handling human interaction simply as another component of the sensed environment risks losing information that is essential for understanding the human’s intention and behaviour.
+Dear Professor,
 
-Existing research addresses important parts of this problem but often from different perspectives. Human-aware and social navigation mostly focus on safe, comfortable, and socially appropriate motion around people [@kruse2013; @singamaneni2024]. Physical human–robot interaction studies how forces or direct contact can be incorporated into robot control [@fremy2014]. In parallel, VLN focuses on grounding linguistic instructions in visual and spatial observations [@anderson2018; @zhang2024]. Together, these directions reveal a broader architectural challenge: human inputs may be physical, semantic, continuous, discrete, low-level, or high-level, whereas environmental information is commonly represented through geometric and semantic models designed primarily for autonomous perception and planning. As the diversity of human input increases, developing separate navigation mechanisms for each modality may make the overall system difficult to generalise and coordinate.
+Thank you for your constructive and detailed feedback on my research introduction. I have revised the draft to clarify the thesis’s research niche, proposed framework, research questions, methodology, and evaluation criteria.
 
-This shortage matters because successful task completion alone is insufficient for interactive navigation. A robot may reach its destination while responding poorly to the person interacting with it. Conversely, a robot may react smoothly to human input but fail to complete the navigation task safely or efficiently. Evaluation of social robot navigation therefore needs to consider both navigation performance and human-centred interaction quality rather than only geometric success [@francis2025]. The central research gap is the lack of a navigation framework that can systematically integrate heterogeneous human inputs with environmental information while preserving both task performance and interaction performance. Addressing this gap could allow richer human inputs without forcing every interaction into the same low-level environmental representation.
+First, I narrowed the integration gap by explaining how physical and linguistic inputs differ in representation, timing, and control level, and why existing task-specific systems do not adequately coordinate them. I also clarified that the thesis proposes one shared decision architecture, rather than two disconnected methods. This architecture connects both input modalities through a common intermediate representation and constraint-based decision layer.
 
-Therefore, this research aims to develop interactive robot navigation methods that integrate human inputs with environmental information for unified navigation decision-making. The first objective is to investigate how physical human inputs can be incorporated with environmental constraints to achieve safe and effective interaction during navigation. The second objective is to investigate how high-level language instructions can be connected with spatial and semantic environmental structures so that a robot can infer navigation decisions from both linguistic intent and perceived surroundings. Building on these studies, the broader objective is to establish a framework that can accommodate increasingly high-level, multimodal, and heterogeneous human inputs while maintaining robust navigation performance.
+Second, I divided the original central question into three focused research questions addressing physical input integration, language grounding, and comparative task and interaction performance. For each question, I added the intended experimental setting, methods, baselines, and measurable outcomes. Safety, comfort, efficiency, and stability are now defined through specific quantitative and human-centred measures.
 
-Accordingly, this research asks how complex human inputs and environmental information can be represented and integrated for interactive robot navigation, and how such integration affects both task success and interaction quality. Ultimately, the research seeks to enable robots to maintain a high task success rate while also achieving strong interaction performance in terms of safety, comfort, efficiency, and stability, even when human input becomes more complex and multimodal. Such a capability would support the transition from robots that merely navigate around people to robots that can navigate with people and according to their intentions.
+Finally, I strengthened the conceptual connection between the two research strands and corrected the expressions and terminology you identified, including “navigation actions,” “occupancy maps,” and consistent use of “multimodal.” These revisions make the proposed contribution more precise, testable, and methodologically coherent.
 
-*Word count: 922*
+Best regards,  
+Yufa
+
+```{=typst}
+#pagebreak()
+```
+
+# Interactive Robot Navigation through the Integration of Human Inputs and Environmental Information {.unnumbered}
+
+*Original word count: 922 words · Revised word count: 1,211 words (comparison boxes and references excluded)*
+
+Autonomous navigation is a fundamental capability for mobile robots. [In conventional systems, robots use sensor observations to construct geometric or semantic representations and select paths or navigation actions that satisfy kinematic and collision-avoidance constraints.]{.highlight} People are frequently encoded within the same environmental model—as tracked objects, predicted trajectories, or inaccessible regions in occupancy maps—so that the planner can avoid them. This representation has supported substantial progress in human-aware and socially aware navigation, where robots are expected not only to avoid collisions but also to respect human comfort, social conventions, and motion patterns [@kruse2013; @moller2021; @singamaneni2024]. [However, as robots enter homes, hospitals, campuses, and workplaces, people increasingly act as collaborators who provide information and influence the robot’s motion, rather than merely as moving obstacles.]{.highlight} Interactive navigation must therefore combine what the robot perceives about the environment with what a person communicates during the task.
+
+::: {.callout-note appearance="simple" icon="false" title="Revision comparison 1 — Terminology and focus"}
+
+```diff
+- "select actions of path"; "occupation maps"
+- people mainly represented as environmental elements
++ "select paths or navigation actions"; "occupancy maps"
++ people additionally represented as collaborators
+```
+
+**Why this was changed:** The original wording contained a grammatical error and used “occupation maps” instead of the established term “occupancy maps.” More importantly, the revision distinguishes navigation *around* people from navigation *with* people, creating a clearer motivation for the thesis.
+
+:::
+
+Human input during navigation can occur at different levels and through different modalities. At a relatively low level, a person may physically push, pull, or guide a robot, and interaction forces can be converted into motion commands while obstacle avoidance maintains safety [@fremy2014]. [Such force input is continuous, time-critical, and closely coupled to local control: its magnitude and direction may indicate an immediate intention to accelerate, turn, stop, or avoid a nearby region.]{.highlight} At a higher level, a person may communicate a navigation goal or route using natural language. Vision-and-Language Navigation (VLN), for example, requires an embodied agent to interpret natural-language instructions in relation to visual observations and execute corresponding navigation actions [@anderson2018]. [Language is comparatively sparse and symbolic; it may specify a distant goal, landmark, spatial relation, route preference, or ordered sequence whose effect persists across many control cycles.]{.highlight} Recent VLN research increasingly connects such instructions with spatial reasoning, semantic scene models, and foundation models [@zhang2024].
+
+::: {.callout-note appearance="simple" icon="false" title="Revision comparison 2 — Input characteristics"}
+
+```diff
+- force is "relatively low level"; language is "higher level"
++ force is continuous, time-critical, and locally coupled
++ language is sparse, symbolic, and persistent over time
+```
+
+**Why this was changed:** Calling one input “low level” and the other “high level” did not explain why integration is technically difficult. The revised contrast identifies the temporal, representational, and control properties that the shared architecture must preserve.
+
+:::
+
+Despite this progress, human inputs and environmental information are still commonly handled through task-specific representations and mechanisms. [The precise integration gap is not that no system combines human and environmental data; rather, existing approaches usually perform the combination within one modality and at one decision level.]{.highlight} Force-guidance systems typically map measured force directly to velocity or motion commands before applying local safety corrections, whereas VLN systems map language and images to goals or discrete actions over a longer horizon. [These pipelines differ in representation (continuous vectors versus symbolic relations), timing (high-frequency streams versus occasional instructions), control level (local motion versus task planning), and decision architecture (reactive controllers versus learned or deliberative policies).]{.highlight} Consequently, merely inserting both inputs into an occupancy map, object list, or end-to-end policy can discard modality-specific information, obscure conflicts between human intention and environmental safety, and make system behaviour difficult to interpret.
+
+::: {.callout-note appearance="simple" icon="false" title="Revision comparison 3 — Research gap"}
+
+```diff
+- a general "lack of a navigation framework"
++ limited coordination across representation and timing
++ limited coordination across control level and architecture
+```
+
+**Why this was changed:** The original “lack of a framework” claim was too broad because the reviewed studies already integrate some human and environmental information. The revision limits the claim to coordination across four named incompatibilities, making the niche more defensible and easier to investigate.
+
+:::
+
+Existing research addresses important parts of this problem but from largely separate perspectives. Human-aware and social navigation concentrate on safe, comfortable, and socially appropriate motion around people [@kruse2013; @singamaneni2024]. Physical human–robot interaction studies how contact forces can shape robot control [@fremy2014], while VLN grounds linguistic instructions in visual and spatial observations [@anderson2018; @zhang2024]. Individually, these strands do not establish how inputs with different temporal scales and levels of abstraction can influence the same navigation decision process without being reduced to a single low-level format. [This thesis therefore treats physical guidance and language instructions as two test cases for a common architectural problem: how to preserve modality-specific intent while translating its navigation-relevant content into a form that can be evaluated against shared environmental constraints.]{.highlight} [The intended contribution is one architecture supporting both modalities through common design principles, not two unrelated navigation methods placed under a broad theme.]{.highlight}
+
+::: {.callout-note appearance="simple" icon="false" title="Revision comparison 4 — Connection between strands"}
+
+```diff
+- physical interaction and VLN presented as separate directions
++ both treated as test cases for one architectural problem
++ modality-specific intent evaluated against shared constraints
+```
+
+**Why this was changed:** The original review placed physical interaction and VLN beside each other but did not establish a shared scientific problem. Framing them as test cases makes their inclusion coherent while acknowledging that their modality-specific processing cannot be identical.
+
+:::
+
+The proposed unified framework contains three linked components. First, modality-specific interpreters retain the distinctive information in each input: a force interpreter estimates immediate motion intent and confidence, while a language-grounding module extracts goals, landmarks, spatial relations, route preferences, and action order. [Second, both interpreters express navigation-relevant outputs in a common intermediate representation consisting of candidate goals or actions, hard and soft constraints, confidence, priority, and temporal horizon.]{.highlight} [Third, a constraint-based decision layer combines this representation with a geometric-semantic environmental model and passes feasible decisions to the global planner or local controller.]{.highlight} Continuous force can therefore affect short-horizon motion without being treated as an obstacle, while language can influence longer-horizon planning without being collapsed into a velocity command. When human intent conflicts with collision constraints or task feasibility, the decision layer preserves safety as a hard constraint and resolves preferences according to confidence and priority.
+
+::: {.callout-note appearance="simple" icon="false" title="Revision comparison 5 — Unified framework"}
+
+```diff
+- "unified framework" stated but not structurally defined
++ modality-specific interpreters
++ shared intermediate representation
++ constraint-based decision layer
+```
+
+**Why this was changed:** “Unified framework” previously named an ambition rather than an implementable proposal. Specifying the interfaces and decision flow reveals what is shared, what remains modality-specific, and which components can later be tested through ablation.
+
+:::
+
+Accordingly, the study is organised around three focused research questions:
+
+1. [**RQ1:** How can continuous physical human input be represented and combined with real-time geometric constraints to produce safe, stable, and intention-consistent robot motion?]{.highlight}
+2. [**RQ2:** How can natural-language goals, landmarks, spatial relations, and route preferences be grounded in a geometric-semantic environmental model and converted into feasible navigation decisions?]{.highlight}
+3. [**RQ3:** Compared with modality-specific navigation pipelines, how does the shared representation and decision layer affect task performance and human-centred interaction quality across physical-guidance and language-guided tasks?]{.highlight}
+
+::: {.callout-note appearance="simple" icon="false" title="Revision comparison 6 — Research questions"}
+
+```diff
+- one broad question covering all inputs and outcomes
++ RQ1: physical input and real-time constraints
++ RQ2: language and geometric-semantic grounding
++ RQ3: shared framework versus modality-specific pipelines
+```
+
+**Why this was changed:** The original compound question combined representation, integration, task success, and interaction quality in one sentence. The three-question structure separates mechanism-specific investigations from framework-level comparison, allowing each question to map to evidence and evaluation measures.
+
+:::
+
+RQ1 will be investigated through simulated and physical indoor navigation tasks in which a participant guides a mobile robot through obstacle layouts using direct force or a handle-based connection. [A force-to-motion baseline and an obstacle-aware force-guidance baseline will be compared with the proposed interpreter and constraint layer.]{.highlight} The experiments will vary path width, obstacle density, required turns, and conflicting force directions to examine both normal guidance and safety-critical cases. RQ2 will use instruction-following tasks in mapped indoor environments containing identifiable rooms, objects, and route alternatives. [The proposed semantic grounding method will be compared with a geometric goal-only baseline and a modality-specific VLN policy, with tests including unseen instructions, ambiguous landmarks, and temporarily blocked routes.]{.highlight}
+
+::: {.callout-note appearance="simple" icon="false" title="Revision comparison 7 — Methods and baselines"}
+
+```diff
+- objectives say only that each modality will be investigated
++ simulated and physical force-guidance experiments
++ mapped indoor language-guidance experiments
++ baselines, controlled variables, and challenging cases
+```
+
+**Why this was changed:** The original objectives did not indicate how either strand would be studied. Adding settings, controlled variations, and relevant baselines makes the research response credible and shows what evidence would distinguish the proposed framework from existing approaches.
+
+:::
+
+RQ3 will evaluate the common architecture through ablation and cross-modality comparison. [Ablations will remove the shared representation, confidence handling, or constraint layer to identify which components produce any observed benefit.]{.highlight} Task performance will be measured using completion rate, collision count, minimum obstacle clearance, path length, time to completion, and success weighted by path efficiency. [Interaction quality will be operationalised rather than treated as a general aspiration: safety will use collisions and clearance; comfort will use peak interaction force, acceleration, jerk, and participant ratings; efficiency will use time, distance, and unnecessary actions; and stability will use velocity oscillation, control reversals, and variance in tracking error.]{.highlight} For language tasks, grounding accuracy, instruction progress, recovery from ambiguity, and route-preference compliance will provide additional measures. Where human participants are involved, post-task ratings and observed interventions will complement the robot-centred metrics.
+
+::: {.callout-note appearance="simple" icon="false" title="Revision comparison 8 — Evaluation criteria"}
+
+```diff
+- safety, comfort, efficiency, and stability as broad outcomes
++ safety: collisions and clearance
++ comfort: force, acceleration, jerk, and ratings
++ efficiency and stability: time, distance, and control measures
+```
+
+**Why this was changed:** The original evaluation terms were values rather than variables, so success could not be judged consistently. Operational definitions connect each construct to observable data, while ablation analysis determines whether improvements arise from the shared representation or another component.
+
+:::
+
+Successful task completion alone is insufficient for interactive navigation. A robot may reach its destination while responding poorly to the person interacting with it; conversely, it may react smoothly to human input but fail to complete the task safely or efficiently. Evaluation must therefore consider both navigation performance and human-centred interaction quality [@francis2025]. [By testing the same intermediate representation and decision principles with one continuous physical modality and one discrete semantic modality, the study will examine whether unification improves coordination without erasing information that each modality requires.]{.highlight} [The expected contribution is a testable account of when heterogeneous human inputs can share navigation mechanisms, which components must remain modality-specific, and how the resulting trade-offs should be evaluated.]{.highlight} Such a capability would support the transition from robots that merely navigate around people to robots that navigate with people and according to their intentions.
+
+::: {.callout-note appearance="simple" icon="false" title="Revision comparison 9 — Expected contribution"}
+
+```diff
+- broad aim of maintaining task and interaction performance
++ evidence about when navigation mechanisms can be shared
++ evidence about modality-specific components and trade-offs
+```
+
+**Why this was changed:** The earlier ending described an intended benefit but not the knowledge the thesis would contribute. The revision states the claim that the experiments can support or challenge: which mechanisms can be shared, which must remain specialised, and what trade-offs unification creates.
+
+:::
+
 
