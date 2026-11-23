@@ -1,0 +1,154 @@
+---
+bibliography: references.bib
+csl: ieee.csl
+citeproc: true
+link-citations: true
+output-file: Assessment3.pdf
+---
+
+# Critical Reflection on Writing Thesis Abstracts {.unnumbered}
+
+*ELC6012 · Assessment 3 · Yufa*  
+*Focus: Abstract writing*  
+*Reflection word count: 838 (excluding headings, annotated examples and references)*
+
+<!-- reflection-start -->
+
+## Introduction
+
+My Assessment 2 introduction proposed interactive robot navigation that combines physical guidance, language instructions and environmental information. Writing an abstract for this research requires more than shortening that introduction. The ELC6012 handout presents the abstract as a self-contained account of the whole thesis, covering background, problem or aim, methods, results and implications [@elcabstract]. I use this framework to examine two doctoral theses: Shomin's work on physical interaction and navigation [@shomin2016], and Hong's work on language-guided visual navigation [@hong2023]. They correspond to the two input modalities in my project. This comparison concerns their writing choices, rather than whether either thesis solves my proposed integration problem.
+
+## My development as an academic writer
+
+The revision record in my Assessment 2 makes one weakness visible: broad descriptions of a framework and its benefits were insufficiently specific. The revision replaced them with an explicit architecture, focused questions and measurable evaluation criteria. Studying abstract writing extends that lesson. [A reader needs to understand not only what I intend to build, but also what evidence supports the contribution.]{.highlight} Technical detail is useful only when its role in that argument is clear.
+
+I now distinguish the purpose of an introduction from the purpose of an abstract. My introduction explains a gap and justifies a programme of research. A completed thesis abstract must also communicate the principal findings. Copying the introduction's future-oriented statements would leave the reader unable to judge what the research established. Conversely, converting those statements into past-tense achievements would misrepresent work that remains planned. This distinction changes how I assess my own writing: I must check the status of each claim as carefully as its grammar.
+
+## Structure, cohesion and academic conventions
+
+The two annotated examples reveal that the course's moves are functions, not necessarily five separate paragraphs. Shomin places aims, methods and outcomes close together across several investigations; Hong develops a sequence of technical problems and responses. Neither ends with a separate synthesis of the entire thesis. These observations fit the handout's allowance for recurring moves in abstracts covering multiple studies, although that allowance does not establish that these particular theses are formally theses-by-publication [@elcabstract]. I interpret the repetition as a way to keep each method beside its outcome. Two examples cannot establish a discipline-wide rule, but they show why I should test completeness without mechanically imposing a paragraph count.
+
+Shomin's abstract also distinguishes a description of the dissertation from completed research through tense changes. The trial and its outcome make an evaluation visible, while the closing outcome remains qualitative (Example A). This helps me see why naming a desirable property is insufficient. In my own abstract, any claim about comfort should be connected to the actual measure and experimental setting. A concise abstract cannot report every statistic, but it should preserve the evidence needed to interpret its central claim.
+
+Hong's progression markers make the order of contributions explicit, while the ending reports improvement without a numerical comparison (Example B). I find the sequence easy to follow, but a list of contributions alone would not explain why my physical and linguistic studies belong together. The handout recommends a concluding synthesis for multi-study abstracts. I would adopt that recommendation to identify what my studies jointly establish about a shared navigation architecture, rather than simply ending with the final experiment.
+
+This distinction also clarifies cohesion and coherence for me. Cohesion operates through transitions, reference expressions and repeated terminology; coherence requires a defensible relationship among the ideas. In my project, repeating the same terms for the shared representation and decision layer can help readers track the argument. However, I must also explain how each study tests that architecture. Adding transition words cannot repair a missing conceptual connection.
+
+The course also allows present-tense dissertation descriptions and mixed-tense research summaries [@elcabstract]. I will choose tense according to function: present tense for what the thesis argues, past tense for completed procedures, and appropriately qualified language for implications. Concision should not remove necessary definitions or conditions. I will introduce abbreviations only when they save space across repeated uses, and remove specialist details that do not help readers understand the contribution. Citations belong in this reflection because I analyse other authors' writing; my own abstract must still be understandable without sending readers elsewhere for its central argument.
+
+## Applying the learning to my thesis
+
+I will begin with the course's planning questions and use its seven-sentence template as a diagnostic outline, not a compulsory final form [@elcabstract]. The opening will identify the coordination problem between human inputs and environmental constraints. The methods summary will explain the shared architecture and the two evaluation settings. After the experiments, I will select findings that directly answer the research questions, including relevant baselines, conditions and any trade-offs. Success rate and interaction quality must not be treated as interchangeable evidence.
+
+Before finalising the abstract, I will label its moves, check that every major claim has supporting results, and ask whether the conclusion follows from both research strands. [My main learning is to treat an abstract as a compact, evidence-based argument for the thesis's contribution.]{.highlight} The course provides a useful structure; the examples show where that structure can be adapted and where I should make the evidence and overall significance more explicit.
+
+<!-- reflection-end -->
+
+```{=typst}
+#pagebreak()
+```
+
+# Annotated Example A — Physical Interaction and Navigation {.unnumbered}
+
+**Source:** M. Shomin, *Navigation and Physical Interaction with Balancing Robots*, Ph.D. dissertation, Carnegie Mellon University, 2016 [@shomin2016]. **Location:** Abstract, unnumbered page; PDF page 3, counting the repository cover.
+
+Only the highlighted fragments are direct quotations. The annotations are my analysis. Paragraphs (P) and sentences (S) are counted within the original abstract; the fragments below are not a continuous extract.
+
+::: {.callout-note appearance="simple" icon="false" title="A1 · Background and aim — P1, S1–S3"}
+
+[“This work describes”]{.highlight}
+
+The opening states the scope before explaining the platform. Background and aim overlap.
+
+:::
+
+::: {.callout-note appearance="simple" icon="false" title="A2 · Evaluation method and tense — P2, S5"}
+
+[“A human subject trial was conducted”]{.highlight}
+
+Past passive identifies completed evaluation, contrasting with the present-tense opening.
+
+:::
+
+::: {.callout-note appearance="simple" icon="false" title="A3 · Result — P2, S6"}
+
+[“This study was successful”]{.highlight}
+
+The reference points back to the trial. The following clause specifies the outcome; the adjective alone would be insufficient.
+
+:::
+
+::: {.callout-note appearance="simple" icon="false" title="A4 · Cohesion — P3, S3"}
+
+[“These data”]{.highlight}
+
+The backward reference connects observation to controller design, making a methodological dependency explicit.
+
+:::
+
+::: {.callout-note appearance="simple" icon="false" title="A5 · Final result and causal explanation — P4, S5"}
+
+[“Because the ballbot is inherently compliant”]{.highlight}
+
+The ending explains a local outcome rather than synthesising all contributions.
+
+:::
+
+```{=typst}
+#pagebreak()
+```
+
+# Annotated Example B — Language-Guided Visual Navigation {.unnumbered}
+
+**Source:** Y. Hong, *Learning Language-Guided Visual Navigation*, Ph.D. thesis, The Australian National University, 2023 [@hong2023]. **Location:** Abstract, pp. vi–vii; PDF pages 9–10.
+
+Only the highlighted fragments are direct quotations. The annotations are my analysis. Paragraphs (P) and sentences (S) are counted within the full PDF abstract; the fragments below are not a continuous extract.
+
+::: {.callout-note appearance="simple" icon="false" title="B1 · Scope and aim — P1, S1"}
+
+[“This thesis studies”]{.highlight}
+
+The opening names the task directly; background is embedded in its explanation.
+
+:::
+
+::: {.callout-note appearance="simple" icon="false" title="B2 · Method sequence — P2, S1"}
+
+[“We start with”]{.highlight}
+
+Active voice foregrounds the researchers' intervention. This marker begins the contribution sequence.
+
+:::
+
+::: {.callout-note appearance="simple" icon="false" title="B3 · A new problem–response cycle — P5, S1"}
+
+[“Then, we address the discrete-to-continuous gap”]{.highlight}
+
+A specific gap introduces another contribution rather than remaining solely in an opening background section.
+
+:::
+
+::: {.callout-note appearance="simple" icon="false" title="B4 · Cohesion across contributions — P6, S1"}
+
+[“Lastly”]{.highlight}
+
+This marker closes the sequence, but ordering alone does not explain the contributions' collective significance.
+
+:::
+
+::: {.callout-note appearance="simple" icon="false" title="B5 · Result and precision — P6, S5"}
+
+[“improves the performance”]{.highlight}
+
+The final claim supplies a result without its magnitude. I would specify the decisive comparison in my own abstract.
+
+:::
+
+```{=typst}
+#pagebreak()
+```
+
+# References (IEEE) {.unnumbered}
+
+::: {#refs}
+:::
